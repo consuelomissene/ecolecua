@@ -12,18 +12,18 @@ class EvaluacionManager {
 
   void creaPreguntas() {
     preguntas.add(new Pregunta(
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
-        "Sed nisl sem, sollicitudin vitae dapibus ac, viverra a dui.",
+        "Youtube: "
+        "¿Qué botón debes presionar para pausar un video?",
         [
           "assets/images/iconos/lupa.jpeg",
           "assets/images/iconos/home.jpeg",
           "assets/images/iconos/pause.jpeg",
           "assets/images/iconos/play.jpeg"
         ],
-        1));
+        3));
     preguntas.add(new Pregunta(
-        "Cras nec eros a dolor lobortis elementum. "
-        "Class aptent taciti sociosqu ad litora torquent per conubia nostra.",
+        "Youtube:"
+        "¿Cuál de estos íconos sirve para buscar un video?",
         [
           "Donec interdum ipsum at tempus blandit.",
           "Aliquam pulvinar nulla sed felis mattis, et porttitor purus viverra.",
@@ -31,13 +31,46 @@ class EvaluacionManager {
         ],
         3));
     preguntas.add(new Pregunta(
-        "Ut sed augue ultrices, volutpat ex nec, mollis leo. Praesent eu pellentesque massa.",
+      "Whatsapp:"
+        "¿Qué número debes anteponer para agregar un contacto en Whatsapp? ",
         [
-          "Mauris sed ligula lobortis, rhoncus urna id, faucibus magna.",
-          "Duis sed purus commodo, sagittis enim eget, efficitur ex.",
-          "Etiam consequat elit condimentum consequat vulputate."
+          "+578",
+          "+350",
+          "+569",
+          "+541"
         ],
         3));
+    preguntas.add(new Pregunta(
+  "Whatsapp:"
+    "¿Cuál es el ícono para enviar un mensaje de texto? ",
+    [
+      "+578",
+      "+350",
+      "+569",
+      "+541"
+    ],
+    4));
+    preguntas.add(new Pregunta(
+  "Facebook:"
+    "¿Cuál de estos íconos sirven para abrir el chat?",
+    [
+      "+578",
+      "+350",
+      "+569",
+      "+541"
+    ],
+    2));
+    preguntas.add(new Pregunta(
+      "Facebook:"
+        "¿Para qué sirve este ícono?"
+      "assets",
+        [
+          "Para enviar un mensaje",
+          "Para buscar un perfil",
+          "Para compartir una publicación",
+          "Para sacar una foto"
+        ],
+        4));
   }
 
   bool esUltimaPregunta() {
