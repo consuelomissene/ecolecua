@@ -1,13 +1,11 @@
+import 'package:ecolecua/pages/conoce.dart';
 import 'package:ecolecua/service/app_config_service.dart';
-import 'package:ecolecua/service/evaluacion_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:ecolecua/pages/preguntas.dart';
 
 class ConfigNombrePage extends StatefulWidget {
   final AppConfigService appConfigService;
 
   const ConfigNombrePage(this.appConfigService);
-  
 
   @override
   _ConfigNombreState createState() => new _ConfigNombreState();
@@ -63,11 +61,15 @@ class _ConfigNombreState extends State<ConfigNombrePage> {
     return MaterialButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         onPressed: () {
+          widget.appConfigService.appData.nombre = myController.text;
+          print(widget.appConfigService.appData);
           Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (BuildContext context) =>
-                      PreguntasPage(new EvaluacionManager())));
+                      ConocePage()));
+                      // PreguntasPage(new EvaluacionManager())));
+          
         },
         color: Theme.of(context).primaryColor,
         child: Text("Continuar", style: TextStyle(color: Colors.white)));
