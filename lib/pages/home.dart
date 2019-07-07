@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_01.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -53,7 +53,12 @@ class ChoiceCard extends StatelessWidget {
                   Text(boton.title)
                 ],
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => Whatsapp01Page()));
+              },
             )
           ],
         ));

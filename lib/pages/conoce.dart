@@ -113,8 +113,7 @@ Widget continuarButton(BuildContext context) {
             context,
             MaterialPageRoute(
                 builder: (BuildContext context) => PreguntasPage(new EvaluacionManager())));
-
-
+        
       },
       color: Theme.of(context).primaryColor,
       child: Text("Continuar", style: TextStyle(color: Colors.white)));
