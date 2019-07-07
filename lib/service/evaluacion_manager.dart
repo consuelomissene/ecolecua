@@ -25,9 +25,10 @@ class EvaluacionManager {
         "Youtube:"
         "¿Cuál de estos íconos sirve para buscar un video?",
         [
-          "Donec interdum ipsum at tempus blandit.",
-          "Aliquam pulvinar nulla sed felis mattis, et porttitor purus viverra.",
-          "Aenean sodales lorem faucibus tincidunt pellentesque."
+          "assets/images/iconos/conf.jpeg",
+          "assets/images/iconos/camara.jpeg",
+          "assets/images/iconos/lupa.jpeg",
+          "assets/images/iconos/pause.jpeg"
         ],
         3));
     preguntas.add(new Pregunta(
@@ -44,26 +45,26 @@ class EvaluacionManager {
   "Whatsapp:"
     "¿Cuál es el ícono para enviar un mensaje de texto? ",
     [
-      "+578",
-      "+350",
-      "+569",
-      "+541"
+      "assets/images/iconos/whatsapp.jpeg",
+      "assets/images/iconos/perfil.jpeg",
+      "assets/images/iconos/audio.jpeg",
+      "assets/images/iconos/enviarW.jpeg"
     ],
     4));
     preguntas.add(new Pregunta(
   "Facebook:"
     "¿Cuál de estos íconos sirven para abrir el chat?",
     [
-      "+578",
-      "+350",
-      "+569",
-      "+541"
+      "assets/images/iconos/perfil.jpeg",
+      "assets/images/iconos/messenger.jpeg",
+      "assets/images/iconos/conf.jpeg",
+      "assets/images/iconos/lupa.jpeg"
     ],
     2));
     preguntas.add(new Pregunta(
       "Facebook:"
         "¿Para qué sirve este ícono?"
-      "assets",
+      "assets/images/iconos/imagen.jpeg",
         [
           "Para enviar un mensaje",
           "Para buscar un perfil",
