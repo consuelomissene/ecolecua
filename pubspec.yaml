@@ -53,6 +53,23 @@ flutter:
     - assets/images/app_logos/whatsapp.png
     - assets/images/app_logos/Instagram.png
     - assets/images/iconos/
+    - assets/images/f1.jpeg
+    - assets/images/f2.jpeg
+    - assets/images/f3.jpeg
+    - assets/images/f4.jpeg
+    - assets/images/f5.jpeg
+    - assets/images/w1.jpeg
+    - assets/images/w2.jpeg
+    - assets/images/w3.jpeg
+    - assets/images/w4.jpeg
+    - assets/images/w5.jpeg
+    - assets/images/y1.jpeg
+    - assets/images/y2.jpeg
+    - assets/images/y3.jpeg
+    - assets/images/y4.jpeg
+    - assets/images/y5.jpeg
+    - assets/images/y6.jpeg
+    - assets/images/y7.jpeg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
