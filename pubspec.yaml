@@ -51,6 +51,8 @@ flutter:
     - assets/images/app_logos/
     - assets/images/iconos/
     - assets/images/tutorial/whatsapp/
+    - assets/images/tutorial/facebook/
+    - assets/images/tutorial/youtube/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
