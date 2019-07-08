@@ -48,10 +48,7 @@ flutter:
 
   assets:
     - assets/images/logo.jpg
-    - assets/images/app_logos/facebook.png
-    - assets/images/app_logos/Youtube.png
-    - assets/images/app_logos/whatsapp.png
-    - assets/images/app_logos/Instagram.png
+    - assets/images/app_logos/
     - assets/images/iconos/
     - assets/images/tutorial/whatsapp/
 
