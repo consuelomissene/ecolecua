@@ -9,18 +9,23 @@ class ConfigNombrePage extends StatefulWidget {
 
   @override
   _ConfigNombreState createState() => new _ConfigNombreState();
-
 }
 
 class _ConfigNombreState extends State<ConfigNombrePage> {
-
   final myController = TextEditingController();
-  
+
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
     myController.dispose();
     super.dispose();
+  }
+
+
+  @override
+  void initState() {
+    myController.text = widget.appConfigService.appData.nombre;
+    super.initState();
   }
 
   @override
@@ -57,23 +62,20 @@ class _ConfigNombreState extends State<ConfigNombrePage> {
     );
   }
 
-  Widget continuarButton(AppConfigService appConfigService, BuildContext context) {
+  Widget continuarButton(
+      AppConfigService appConfigService, BuildContext context) {
     return MaterialButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         onPressed: () {
-          widget.appConfigService.appData.nombre = myController.text;
+          appConfigService.appData.saveNombre(myController.text);
           print(widget.appConfigService.appData);
           Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (BuildContext context) =>
                       ConocePage(appConfigService)));
-                      // PreguntasPage(new EvaluacionManager())));
-          
         },
         color: Theme.of(context).primaryColor,
         child: Text("Continuar", style: TextStyle(color: Colors.white)));
   }
-
-
 }

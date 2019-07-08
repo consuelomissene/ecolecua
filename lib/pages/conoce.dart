@@ -1,3 +1,4 @@
+import 'package:ecolecua/pages/home.dart';
 import 'package:ecolecua/service/app_config_service.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -114,10 +115,19 @@ Widget continuarButton(AppConfigService appConfigService,BuildContext context) {
   return MaterialButton(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       onPressed: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (BuildContext context) => PreguntasPage(appConfigService, new EvaluacionManager())));
+        if (appConfigService.appData.tieneEvaluacion) {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => HomePage(appConfigService)));
+        } else {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => PreguntasPage(appConfigService, new EvaluacionManager())));
+        }
+        
+        
         
       },
       color: Theme.of(context).primaryColor,

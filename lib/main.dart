@@ -8,26 +8,53 @@ import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_01.dart';
 
 void main() {
   runApp(new EcolecuaApp(
-    title: 'Flutter Redux Demo',
+    title: 'Ecolecua App',
+    appConfigService: AppConfigService(new AppData()),
   ));
 }
 
-class EcolecuaApp extends StatelessWidget {
-  final String title;
+class EcolecuaApp extends StatefulWidget {
 
-  const EcolecuaApp({Key key, this.title}) : super(key: key);
+  final String title;
+  final appConfigService;
+
+  const EcolecuaApp({Key key, this.title, this.appConfigService}) : super(key: key);
+
+
+  @override
+  _EcolecuaAppState createState() => new _EcolecuaAppState();  
+}
+
+class _EcolecuaAppState extends State<EcolecuaApp> {
+  
+  String _nombre;
+
+  @override
+  void initState() {
+    super.initState();
+    _load();
+  }
+
+  //Loading counter value on start
+  _load() async {
+    await widget.appConfigService.appData.loadNombre();
+    await widget.appConfigService.appData.loadTieneEvaluacion();
+    setState(() {
+      _nombre = widget.appConfigService.appData.nombre ?? "";
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: title,
+      title: widget.title,
       home: Builder(builder: (context) => inicio(context)),
       routes: {
             '/tutorial/whatsapp' : (context) => Whatsapp01Page()
       },
     );
   }
-
+  
   Widget inicio(context) {
     return Scaffold(
       body: Container(
@@ -38,6 +65,10 @@ class EcolecuaApp extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(30.0),
             ),
+            Text('Bienvenido $_nombre' ),
+                Padding(
+                  padding: EdgeInsets.all(15.0),
+                ),
             Image.asset(
               'assets/images/logo.jpg',
               scale: 2,
@@ -58,14 +89,19 @@ class EcolecuaApp extends StatelessWidget {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
           onPressed: () {
+            
             Navigator.push(
                 context,
                 MaterialPageRoute(
                     builder: (BuildContext context) => ConfigVolumenPage(
-                        new AppConfigService(new AppData()))));
+                        widget.appConfigService)));
           },
           color: Theme.of(context).primaryColor,
           child: Text("Empecemos", style: TextStyle(color: Colors.white))),
     );
   }
+
 }
+ 
+  
+
