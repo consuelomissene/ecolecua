@@ -5,7 +5,9 @@ import 'package:ecolecua/pages/resultado.dart';
 
 class PreguntasPage extends StatefulWidget {
   final EvaluacionManager evaluacionManager;
-  const PreguntasPage(this.evaluacionManager);
+  final AppConfigService appConfigService;
+  
+  const PreguntasPage(this.appConfigService, this.evaluacionManager);
 
   @override
   _PreguntasState createState() => new _PreguntasState();
@@ -17,11 +19,13 @@ class _PreguntasState extends State<PreguntasPage> {
   String _texto;
   int _index;
   var _evaluacionManager;
+  var _appConfigService;
 
   @override
   void initState() {
     super.initState();
     _evaluacionManager = widget.evaluacionManager;
+    _appConfigService = widget.appConfigService;
     _index = _evaluacionManager.preguntaActual;
     _colorRespuesta = new List<Color>.filled(
         _evaluacionManager.preguntas[_index].respuestas.length,
@@ -61,13 +65,13 @@ class _PreguntasState extends State<PreguntasPage> {
                 context,
                 MaterialPageRoute(
                     builder: (BuildContext context) =>
-                        ResultadoPage(_evaluacionManager.correctas)));
+                        ResultadoPage(_appConfigService, _evaluacionManager.correctas)));
           } else {
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                     builder: (BuildContext context) =>
-                        PreguntasPage(_evaluacionManager)));
+                        PreguntasPage(_appConfigService, _evaluacionManager)));
           }
         },
         label: _evaluacionManager.esUltimaPregunta()

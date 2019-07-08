@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+
 import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_02.dart';
+import 'package:ecolecua/model/screen_arguments.dart';
+
 
 class Whatsapp01Page extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
+    final ScreenArguments args = ModalRoute.of(context).settings.arguments;
+    print('usuario: ${args.appConfigService.appData.nombre}');
+    
     return Scaffold(
         appBar: AppBar(
           title: Text('Whatsapp'),
@@ -30,4 +37,6 @@ class Whatsapp01Page extends StatelessWidget {
           ],
         ));
   }
+
+  
 }

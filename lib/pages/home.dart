@@ -1,7 +1,12 @@
+import 'package:ecolecua/model/screen_arguments.dart';
+import 'package:ecolecua/service/app_config_service.dart';
 import 'package:flutter/material.dart';
-import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_01.dart';
 
 class HomePage extends StatelessWidget {
+  final AppConfigService appConfigService;
+
+  const HomePage(this.appConfigService);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +27,9 @@ class HomePage extends StatelessWidget {
               crossAxisCount: 2,
               children: List.generate(botones.length, (index) {
                 return Center(
-                  child: ChoiceCard(boton: botones[index]),
+                  child: ChoiceCard(
+                      appConfigService: appConfigService,
+                      boton: botones[index]),
                 );
               }),
             ),
@@ -34,8 +41,10 @@ class HomePage extends StatelessWidget {
 }
 
 class ChoiceCard extends StatelessWidget {
-  const ChoiceCard({Key key, this.boton}) : super(key: key);
+  const ChoiceCard({Key key, this.boton, this.appConfigService})
+      : super(key: key);
   final Boton boton;
+  final AppConfigService appConfigService;
 
   @override
   Widget build(BuildContext context) {
@@ -59,10 +68,8 @@ class ChoiceCard extends StatelessWidget {
                 ],
               ),
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => Whatsapp01Page()));
+                Navigator.pushNamed(context, boton.route,
+                    arguments: ScreenArguments(appConfigService));
               },
             )
           ],
@@ -71,12 +78,12 @@ class ChoiceCard extends StatelessWidget {
 }
 
 class Boton {
-  const Boton({this.title, this.logo, this.label, this.page});
+  const Boton({this.title, this.logo, this.label, this.route});
 
   final String title;
   final String logo;
   final String label;
-  final Widget page;
+  final String route;
 }
 
 const List<Boton> botones = const <Boton>[
@@ -84,15 +91,15 @@ const List<Boton> botones = const <Boton>[
       title: 'Facebook',
       logo: "assets/images/app_logos/facebook.jpg",
       label: "Logo de Facebook",
-      page: null),
+      route: null),
   const Boton(
       title: 'Youtube',
       logo: "assets/images/app_logos/youtube.jpg",
       label: "Logo de Youtube",
-      page: null),
+      route: null),
   const Boton(
       title: 'WhatsApp',
       logo: "assets/images/app_logos/whatsapp.jpg",
       label: "Logo de WhatsApp",
-      page: null),
+      route: '/tutorial/whatsapp'),
 ];

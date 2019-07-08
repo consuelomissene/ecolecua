@@ -1,10 +1,13 @@
+import 'package:ecolecua/service/app_config_service.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
 
 class ResultadoPage extends StatelessWidget {
+  final AppConfigService appConfigService;
+  
   final int _correctas;
 
-  ResultadoPage(this._correctas);
+  ResultadoPage(this.appConfigService, this._correctas);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,7 @@ class ResultadoPage extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (BuildContext context) =>
-                      HomePage()));
+                      HomePage(appConfigService)));
         },
         icon: Icon(Icons.home),
         label: Text('Ir al menú'),

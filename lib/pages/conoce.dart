@@ -1,3 +1,4 @@
+import 'package:ecolecua/service/app_config_service.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:video_player/video_player.dart';
@@ -5,6 +6,10 @@ import 'package:ecolecua/pages/preguntas.dart';
 import 'package:ecolecua/service/evaluacion_manager.dart';
 
 class ConocePage extends StatefulWidget {
+  final AppConfigService appConfigService;
+
+  const ConocePage(this.appConfigService);
+  
   @override
   _ConoceState createState() => new _ConoceState();
 }
@@ -77,7 +82,7 @@ class _ConoceState extends State<ConocePage> {
             SizedBox(
               height: 50,
               width: 140,
-              child: continuarButton(context),
+              child: continuarButton(widget.appConfigService, context),
             )
           ],
         ),
@@ -105,14 +110,14 @@ class _ConoceState extends State<ConocePage> {
   }
 }
 
-Widget continuarButton(BuildContext context) {
+Widget continuarButton(AppConfigService appConfigService,BuildContext context) {
   return MaterialButton(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       onPressed: () {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (BuildContext context) => PreguntasPage(new EvaluacionManager())));
+                builder: (BuildContext context) => PreguntasPage(appConfigService, new EvaluacionManager())));
         
       },
       color: Theme.of(context).primaryColor,

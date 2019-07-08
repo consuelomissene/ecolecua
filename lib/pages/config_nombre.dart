@@ -50,14 +50,14 @@ class _ConfigNombreState extends State<ConfigNombrePage> {
           SizedBox(
             height: 50,
             width: 140,
-            child: continuarButton(context),
+            child: continuarButton(widget.appConfigService, context),
           )
         ],
       ),
     );
   }
 
-  Widget continuarButton(BuildContext context) {
+  Widget continuarButton(AppConfigService appConfigService, BuildContext context) {
     return MaterialButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         onPressed: () {
@@ -67,7 +67,7 @@ class _ConfigNombreState extends State<ConfigNombrePage> {
               context,
               MaterialPageRoute(
                   builder: (BuildContext context) =>
-                      ConocePage()));
+                      ConocePage(appConfigService)));
                       // PreguntasPage(new EvaluacionManager())));
           
         },
