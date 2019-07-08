@@ -19,7 +19,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_redux: ^0.5.3
+  video_player:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -48,28 +48,11 @@ flutter:
 
   assets:
     - assets/images/logo.jpg
-    - assets/images/app_logos/facebook.png
-    - assets/images/app_logos/Youtube.png
-    - assets/images/app_logos/whatsapp.png
-    - assets/images/app_logos/Instagram.png
+    - assets/images/app_logos/
     - assets/images/iconos/
-    - assets/images/f1.jpeg
-    - assets/images/f2.jpeg
-    - assets/images/f3.jpeg
-    - assets/images/f4.jpeg
-    - assets/images/f5.jpeg
-    - assets/images/w1.jpeg
-    - assets/images/w2.jpeg
-    - assets/images/w3.jpeg
-    - assets/images/w4.jpeg
-    - assets/images/w5.jpeg
-    - assets/images/y1.jpeg
-    - assets/images/y2.jpeg
-    - assets/images/y3.jpeg
-    - assets/images/y4.jpeg
-    - assets/images/y5.jpeg
-    - assets/images/y6.jpeg
-    - assets/images/y7.jpeg
+    - assets/images/tutorial/whatsapp/
+    - assets/images/tutorial/facebook/
+    - assets/images/tutorial/youtube/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

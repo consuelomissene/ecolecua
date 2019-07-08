@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:ecolecua/pages/config_volumen.dart';
 import 'package:ecolecua/service/app_config_service.dart';
 
+import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_01.dart';
+
 void main() {
   runApp(new EcolecuaApp(
     title: 'Flutter Redux Demo',
@@ -20,6 +22,9 @@ class EcolecuaApp extends StatelessWidget {
     return new MaterialApp(
       title: title,
       home: Builder(builder: (context) => inicio(context)),
+      routes: {
+            '/tutorial/whatsapp' : (context) => Whatsapp01Page()
+      },
     );
   }
 

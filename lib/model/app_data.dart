@@ -9,5 +9,10 @@ class AppData {
     fontSize = 12.0;
   }
 
+  @override
+  String toString() {
+    return 'AppData{nombre: $nombre, fontSize: $fontSize, volumen: $volumen}';
+  }
+
 
 }
