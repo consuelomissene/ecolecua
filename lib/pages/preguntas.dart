@@ -61,6 +61,7 @@ class _PreguntasState extends State<PreguntasPage> {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           if (_evaluacionManager.esUltimaPregunta()) {
+            _appConfigService.appData.saveTieneEvaluacion(true);
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
@@ -124,6 +125,7 @@ class _PreguntasState extends State<PreguntasPage> {
                 });
                 _clicked = true;
                 _evaluacionManager.preguntaActual++;
+                _appConfigService.appData.saveTieneEvaluacion(true);
                 print('Correctas: ' + _evaluacionManager.correctas.toString());
               }
             },

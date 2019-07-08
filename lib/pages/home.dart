@@ -3,6 +3,7 @@ import 'package:ecolecua/service/app_config_service.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
+  
   final AppConfigService appConfigService;
 
   const HomePage(this.appConfigService);
