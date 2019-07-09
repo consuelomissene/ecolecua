@@ -1,8 +1,6 @@
 import 'package:ecolecua/service/app_config_service.dart';
 import 'package:flutter/material.dart';
 
-
-
 import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_02.dart';
 
 class Whatsapp01Page extends StatelessWidget {
@@ -28,7 +26,7 @@ class Whatsapp01Page extends StatelessWidget {
             ButtonTheme(
               minWidth: 80.0,
               height: 80.0,
-              child: RaisedButton(
+              child: FlatButton(
                 onPressed: () {
                   Navigator.push(
                       context,

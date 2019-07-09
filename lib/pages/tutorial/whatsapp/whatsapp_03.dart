@@ -1,13 +1,13 @@
 import 'package:ecolecua/service/app_config_service.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_03.dart';
+import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_02.dart';
 
-class Whatsapp02Page extends StatelessWidget {
+class Whatsapp03Page extends StatelessWidget {
   
   final AppConfigService appConfigService;
 
-  const Whatsapp02Page({Key key, this.appConfigService}) : super(key: key);
+  const Whatsapp03Page({Key key, this.appConfigService}) : super(key: key);
   
   
   @override
@@ -22,7 +22,7 @@ class Whatsapp02Page extends StatelessWidget {
           children: <Widget>[
             Center(
                 child: Image.asset(
-                    'assets/images/tutorial/whatsapp/whatsapp-02.png')),
+                    'assets/images/tutorial/whatsapp/whatsapp-03.jpeg')),
             ButtonTheme(
               minWidth: 320.0,
               height: 80.0,
@@ -31,7 +31,7 @@ class Whatsapp02Page extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (BuildContext context) => Whatsapp03Page()));
+                          builder: (BuildContext context) => Whatsapp02Page()));
                 },
                 color: Colors.transparent,
               ),

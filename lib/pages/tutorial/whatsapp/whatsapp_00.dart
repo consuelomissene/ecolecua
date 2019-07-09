@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_01.dart';
+import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_00b.dart';
 import 'package:ecolecua/model/screen_arguments.dart';
 
 class Whatsapp extends StatelessWidget {
@@ -44,7 +44,7 @@ class Whatsapp extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Whatsapp01Page(appConfigService: args.appConfigService)),
+                        MaterialPageRoute(builder: (context) => Whatsapp00bPage(appConfigService: args.appConfigService)),
                       );
                     },
                   ),
