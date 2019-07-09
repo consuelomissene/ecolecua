@@ -104,8 +104,8 @@ class _PreguntasState extends State<PreguntasPage> {
                     children: <Widget>[
                       Image.asset(
                         item,
-                        width: 25,
-                        height: 25,
+                        width: 35,
+                        height: 35,
                       )
                     ],
                   )
