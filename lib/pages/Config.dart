@@ -46,11 +46,9 @@ class _Configuracion extends State<ConfiguracionPage> {
           child: Column(children: [
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Text('Edite su nombre aquí',style: TextStyle(fontSize: _fontSize-4),),
+              child: Text('Edite su nombre aquí abajo:',style: TextStyle(fontSize: _fontSize-4),),
             ),
-            Padding(
-              padding: EdgeInsets.only(top: 0.0),
-            ),
+
             Padding(
               padding: const EdgeInsets.all(8.0),
               child:  TextField(
@@ -88,7 +86,7 @@ class _Configuracion extends State<ConfiguracionPage> {
                 }),
 
             Padding(
-              padding: EdgeInsets.all(40.0),
+              padding: EdgeInsets.all(30.0),
             ),
             Center(child:
             Text("Mueve el botón hasta que te guste el tamaño de la letra",style:TextStyle(fontSize: _fontSize-4)),
@@ -106,7 +104,7 @@ class _Configuracion extends State<ConfiguracionPage> {
 
 
             Padding(
-              padding: EdgeInsets.only(top:80.0),
+              padding: EdgeInsets.only(top:60.0),
             ),
 
               ButtonTheme(
@@ -134,7 +132,7 @@ class _Configuracion extends State<ConfiguracionPage> {
           ]),
         ),
       ),
-      appBar: AppBar(backgroundColor: Colors.orange,title: Text('Configuracipon', style: TextStyle(fontSize: _fontSize),),),
+      appBar: AppBar(backgroundColor: Colors.orange,title: Text('Configuración', style: TextStyle(fontSize: _fontSize),),),
     );
   }
 }

@@ -80,7 +80,7 @@ class _ConoceState extends State<ConocePage> {
               },
             ),
             Padding(
-              padding: EdgeInsets.only(top: 15.0,left: 20.0,right: 20.0, bottom: 80.0),
+              padding: EdgeInsets.only(top: 15.0,left: 20.0,right: 20.0, bottom: 60.0),
               child: Text('Puede pausar y continuar el video apretando el'
                   ' botón con forma circular. Además, si lo desea, puede  ladear su celular para ampliar la pantalla, y volverla a enderezar'
                   ' para dejar de ver el video',
@@ -88,7 +88,7 @@ class _ConoceState extends State<ConocePage> {
             ),
             SizedBox(
               height: 50,
-              width: 140,
+              width:200,
               child: continuarButton(widget.appConfigService, context),
             )
           ],
