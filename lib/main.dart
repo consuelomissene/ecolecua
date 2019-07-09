@@ -5,6 +5,11 @@ import 'package:ecolecua/pages/config_volumen.dart';
 import 'package:ecolecua/service/app_config_service.dart';
 
 import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_00.dart';
+import 'package:ecolecua/pages/tutorial/facebook/facebook_00.dart';
+import 'package:ecolecua/pages/tutorial/youtube/youtube_00.dart';
+
+
+
 
 void main() {
   runApp(new EcolecuaApp(
@@ -53,8 +58,8 @@ class _EcolecuaAppState extends State<EcolecuaApp> {
       home: Builder(builder: (context) => inicio(context)),
       routes: {
             '/tutorial/whatsapp' : (context) => Whatsapp(),
-        // '/tutorial/facebook' : (context) => Facebook(),
-        // '/tutorial/youtube' : (context) => Youtube()
+            '/tutorial/facebook' : (context) => Facebook(),
+            '/tutorial/youtube' : (context) => Youtube()
       },
 
     );
