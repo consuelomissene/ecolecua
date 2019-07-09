@@ -34,8 +34,9 @@ class EcolecuaW extends StatelessWidget{
                   ),
 
                   Text('¡Ecolecuá!', style: TextStyle(fontSize: 40.0, color: Colors.deepOrange,fontWeight: FontWeight.w500),),
-                  Center(child:
-                  Text('Has completado este ejercicio con éxito.',style: TextStyle(fontSize: _fontSize), maxLines: 2,),
+                  Container(child:
+                  Text('Has completado este ejercicio con éxito',style: TextStyle(fontSize: _fontSize+1), maxLines: 2,textAlign: TextAlign.center,),
+                    padding: EdgeInsets.only(left: 10.0),
                   ),
                   Container(child:
                   Text('Puedes escoger:',style: TextStyle(fontSize: _fontSize),),

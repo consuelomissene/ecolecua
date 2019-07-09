@@ -125,7 +125,7 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Padding(
-              padding: EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(15.0),
               child: Center(
                   child: Text('¿Qué red social deseas aprender hoy?',
                       style: TextStyle(

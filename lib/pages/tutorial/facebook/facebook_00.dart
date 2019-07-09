@@ -5,8 +5,10 @@ import 'package:ecolecua/model/screen_arguments.dart';
 
 class Facebook extends StatelessWidget {
   //Facebook
+
   @override
   Widget build(BuildContext context) {
+
     final ScreenArguments args = ModalRoute.of(context).settings.arguments;
     double _fontSize = args.appConfigService.appData.fontSize;
 
@@ -45,7 +47,7 @@ class Facebook extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Facebook00bPage()),
+                        MaterialPageRoute(builder: (context) => Facebook00bPage(appConfigService: args.appConfigService)),
                       );
                     },
                   ),
