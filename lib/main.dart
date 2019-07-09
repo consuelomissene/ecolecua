@@ -52,8 +52,11 @@ class _EcolecuaAppState extends State<EcolecuaApp> {
       title: widget.title,
       home: Builder(builder: (context) => inicio(context)),
       routes: {
-            '/tutorial/whatsapp' : (context) => Whatsapp()
+            '/tutorial/whatsapp' : (context) => Whatsapp(),
+        '/tutorial/facebook' : (context) => Facebook(),
+        '/tutorial/youtube' : (context) => Youtube()
       },
+
     );
   }
 
