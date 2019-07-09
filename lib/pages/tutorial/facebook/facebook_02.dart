@@ -17,7 +17,7 @@ class Facebook02Page extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.lightBlue[900],
           title: Text(
-            "Ejercicio 1: Publica ",
+            "Ejercicio 1: ",
             style: TextStyle(fontSize: _fontSize),
           ),
         ),
@@ -28,7 +28,7 @@ class Facebook02Page extends StatelessWidget {
                 child: Image.asset(
                     'assets/images/tutorial/facebook/f2.jpeg')),
             Container(
-              padding: EdgeInsets.fromLTRB(120.0, 310.0, 0.0, 0.0),
+              padding: EdgeInsets.fromLTRB(10.0, 100.0, 0.0, 0.0),
               child:
               ButtonTheme(
                   minWidth: 110.0,
@@ -38,11 +38,13 @@ class Facebook02Page extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (BuildContext context) => Facebook03Page(appConfigService: appConfigService,)));
+                              builder: (context) => Facebook03Page(appConfigService: appConfigService,)),
+                        );
                       },
                       child: Text(''))
               ),
             ),
+
           ],
         ));
   }

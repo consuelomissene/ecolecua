@@ -47,7 +47,7 @@ class _Facebook01VideoState extends State<Facebook01VideoPage> {
         backgroundColor: Colors.lightBlue[900],
         title: Text(
           "Tema 1: Cómo publicar una imagen",
-          style: TextStyle(fontSize: _fontSize),
+          style: TextStyle(fontSize: _fontSize),maxLines: 2,
         ),
       ),
       body: Center(

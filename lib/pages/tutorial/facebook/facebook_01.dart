@@ -16,7 +16,7 @@ class Facebook01Page extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.lightBlue[900],
-          title: Text('Ejercicio 1:', style: new TextStyle(fontSize: _fontSize)),
+          title: Text('Paso 1: ', style: new TextStyle(fontSize: _fontSize)),
         ),
         body: Stack(
           alignment: const Alignment(0.3, -0.9),
@@ -25,7 +25,7 @@ class Facebook01Page extends StatelessWidget {
                 child: Image.asset(
                     'assets/images/tutorial/facebook/f1.jpeg')),
             Container(
-              padding: EdgeInsets.fromLTRB(70.0, 105.0, 0.0, 0.0),
+              padding: EdgeInsets.fromLTRB(0.0, 95.0, 50.0, 0.0),
               child:
               ButtonTheme(
                   minWidth: 210.0,
@@ -35,7 +35,8 @@ class Facebook01Page extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (BuildContext context) => Facebook02Page(appConfigService: appConfigService)));
+                              builder: (context) => Facebook02Page(appConfigService: appConfigService,)),
+                        );
                       },
                       child: Text(''))
               ),
