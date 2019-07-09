@@ -174,8 +174,8 @@ class ChoiceCard extends StatelessWidget {
             image: AssetImage(boton.logo),
             semanticLabel: boton.sem,
             alignment: Alignment.topCenter,
-            width: 180.0,
-            height: 140.0),
+            width: 165.0,
+            height: 125.0),
         Text(boton.title,
             style: new TextStyle(fontSize: _fontSize, color: boton.colorin))
       ]),
