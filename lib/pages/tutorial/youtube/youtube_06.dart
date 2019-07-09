@@ -14,9 +14,8 @@ class Youtube06Page extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Whatsapp'),
-        ),
+
+
         body: Stack(
           alignment: const Alignment(0.85, 0.0),
           children: <Widget>[

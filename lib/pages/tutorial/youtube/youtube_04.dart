@@ -12,10 +12,15 @@ class Youtube04Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    double _fontSize;
+    _fontSize=appConfigService.appData.fontSize;
     return Scaffold(
         appBar: AppBar(
-          title: Text('Whatsapp'),
+          backgroundColor: Colors.redAccent[400],
+          title: Text(
+            'Ejercicio 1: Busca un video de Chayanne',
+            style: TextStyle(fontSize: _fontSize), maxLines: 3,
+          ),
         ),
         body: Stack(
           alignment: const Alignment(0.85, 0.0),

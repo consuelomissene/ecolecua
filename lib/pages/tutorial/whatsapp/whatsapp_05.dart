@@ -34,13 +34,17 @@ class _Whatsapp05State extends State<Whatsapp05Page> {
   }
     @override
     Widget build(BuildContext context) {
+    double _fontSize;
+    _fontSize=widget.appConfigService.appData.fontSize;
       return Scaffold(
-          appBar: PreferredSize(child: AppBar(
-            backgroundColor: Colors.green[500],
-            title: Text('Ejercicio 1: Eile hola a ValePony', style: TextStyle(fontSize: 20.0),maxLines: 3,),
+          appBar: AppBar(
+            backgroundColor: Colors.redAccent[400],
+            title: Text(
+              'Tema 1: Cómo buscar un video',
+              style: TextStyle(fontSize: _fontSize),
+            ),
           ),
-              preferredSize: Size.fromHeight(80.0)
-          ),
+
           body: Stack(
             alignment: const Alignment(0.85, 0.0),
             children: <Widget>[
