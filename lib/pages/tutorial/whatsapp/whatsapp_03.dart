@@ -41,7 +41,7 @@ class _Whatsapp03State extends State<Whatsapp03Page> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (BuildContext context) => Whatsapp04Page()));
+                          builder: (BuildContext context) => Whatsapp04Page(appConfigService: widget.appConfigService,)));
                 },
                 color: Colors.transparent,
               ),

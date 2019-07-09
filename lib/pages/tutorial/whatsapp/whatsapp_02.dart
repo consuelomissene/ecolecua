@@ -31,7 +31,7 @@ class Whatsapp02Page extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (BuildContext context) => Whatsapp03Page()));
+                          builder: (BuildContext context) => Whatsapp03Page(appConfigService: appConfigService,)));
                 },
                 color: Colors.transparent,
               ),
