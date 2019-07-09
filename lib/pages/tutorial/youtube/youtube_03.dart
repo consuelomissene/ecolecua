@@ -23,9 +23,15 @@ class _Youtube03State extends State<Youtube03Page> {
 
   @override
   Widget build(BuildContext context) {
+    double _fontSize;
+    _fontSize=widget.appConfigService.appData.fontSize;
     return Scaffold(
         appBar: AppBar(
-          title: Text('Whatsapp'),
+          backgroundColor: Colors.redAccent[400],
+          title: Text(
+            'Ejercicio 1: Busca un video de Chayanne',
+            style: TextStyle(fontSize: _fontSize), maxLines: 3,
+          ),
         ),
         body: Stack(
           alignment: const Alignment(0.0, 0.16),
