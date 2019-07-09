@@ -42,18 +42,20 @@ class _PreguntasState extends State<PreguntasPage> {
         title: Text(
             "Pregunta " + (_evaluacionManager.preguntaActual + 1).toString(), style: TextStyle(fontSize: _fontSize),),
       ),
-      body: Column(
+      body:
+      Column(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(top: 20.0),
+            padding: EdgeInsets.only(top: 20.0,left: 10.0),
           ),
           Padding(
-            padding: const EdgeInsets.all(18.0),
+            padding: const EdgeInsets.all(20.0),
             child: Text(_texto, style: TextStyle(fontSize: _fontSize),),
           ),
-          Text('Presiona la alternativa que creas correcta',style: TextStyle(fontSize: _fontSize),),
+
           Padding(
-            padding: EdgeInsets.only(top: 15.0),
+            padding: EdgeInsets.all(20.0)
+            child: Text('Presiona la alternativa que creas correcta',style: TextStyle(fontSize: _fontSize-2),),
           ),
           Expanded(
             child: respuestas(),
@@ -78,8 +80,10 @@ class _PreguntasState extends State<PreguntasPage> {
           }
         },
         label: _evaluacionManager.esUltimaPregunta()
-            ? Text("Evaluar")
-            : Text("Continuar"),
+            ? Text("Evaluar",style: TextStyle(fontSize: _fontSize),)
+            : Text("Siguiente",style: TextStyle(fontSize: _fontSize),),
+        icon:Icon(Icons.arrow_forward),
+        backgroundColor: Colors.orangeAccent,
       ),
     );
   }
@@ -93,7 +97,6 @@ class _PreguntasState extends State<PreguntasPage> {
         itemBuilder: (context, index) {
           final item = items[index];
           return ListTile(
-
             leading: CircleAvatar(
                 backgroundColor: _colorRespuesta[index],
                 child: Text(new String.fromCharCodes([65 + index]),
@@ -107,12 +110,12 @@ class _PreguntasState extends State<PreguntasPage> {
                     children: <Widget>[
                       Image.asset(
                         item,
-                        width: 35,
-                        height: 35,
+                        width: 40,
+                        height: 60,
                       )
                     ],
                   )
-                : Text(item),
+                : Text(item, style: TextStyle(fontSize: _fontSize),),
             onTap: () {
               bool esCorrecta = pregunta.evalua(index);
 

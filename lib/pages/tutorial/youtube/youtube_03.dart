@@ -1,16 +1,17 @@
-import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_04.dart';
+import 'package:ecolecua/pages/tutorial/youtube/youtube_04.dart';
 import 'package:ecolecua/service/app_config_service.dart';
 import 'package:flutter/material.dart';
 
-class Whatsapp03Page extends StatefulWidget {
+class Youtube03Page extends StatefulWidget {
   final AppConfigService appConfigService;
 
-  const Whatsapp03Page({Key key, this.appConfigService}) : super(key: key);
+  const Youtube03Page({Key key, this.appConfigService}) : super(key: key);
+
   @override
-  _Whatsapp03State createState() => new _Whatsapp03State();
+  _Youtube03State createState() => new _Youtube03State();
 }
 
-class _Whatsapp03State extends State<Whatsapp03Page> {
+class _Youtube03State extends State<Youtube03Page> {
   final myController = TextEditingController();
 
   @override
@@ -31,7 +32,7 @@ class _Whatsapp03State extends State<Whatsapp03Page> {
           children: <Widget>[
             Center(
                 child: Image.asset(
-                    'assets/images/tutorial/whatsapp/whatsapp-03.jpeg')),
+                    'assets/images/tutorial/youtube/y3.jpeg')),
             ButtonTheme(
               minWidth: 250.0,
               height: 60.0,
@@ -40,7 +41,7 @@ class _Whatsapp03State extends State<Whatsapp03Page> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (BuildContext context) => Whatsapp04Page(appConfigService: widget.appConfigService,)));
+                          builder: (BuildContext context) => Youtube04Page()));
                 },
                 color: Colors.transparent,
               ),

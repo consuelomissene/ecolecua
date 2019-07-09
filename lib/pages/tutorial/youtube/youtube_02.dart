@@ -1,37 +1,37 @@
 import 'package:ecolecua/service/app_config_service.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_02.dart';
+import 'package:ecolecua/pages/tutorial/youtube/youtube_03.dart';
 
-class Whatsapp01Page extends StatelessWidget {
-  
+class Youtube02Page extends StatelessWidget {
+
   final AppConfigService appConfigService;
 
-  const Whatsapp01Page({Key key, this.appConfigService}) : super(key: key);
-  
-  
+  const Youtube02Page({Key key, this.appConfigService}) : super(key: key);
+
+
   @override
   Widget build(BuildContext context) {
-    
+
     return Scaffold(
         appBar: AppBar(
           title: Text('Whatsapp'),
         ),
         body: Stack(
-          alignment: const Alignment(0.3, -0.9),
+          alignment: const Alignment(0.0, 0.28),
           children: <Widget>[
             Center(
                 child: Image.asset(
-                    'assets/images/tutorial/whatsapp/whatsapp-01.png')),
+                    'assets/images/tutorial/youtube/y2.jpeg')),
             ButtonTheme(
-              minWidth: 80.0,
+              minWidth: 320.0,
               height: 80.0,
               child: FlatButton(
                 onPressed: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (BuildContext context) => Whatsapp02Page(appConfigService: appConfigService)));
+                          builder: (BuildContext context) => Youtube03Page()));
                 },
                 color: Colors.transparent,
               ),
@@ -40,5 +40,5 @@ class Whatsapp01Page extends StatelessWidget {
         ));
   }
 
-  
+
 }
