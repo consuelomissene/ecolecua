@@ -5,6 +5,7 @@ import 'dart:io';
 import 'Config.dart';
 
 class HomePage extends StatelessWidget {
+
   final AppConfigService appConfigService;
   HomePage(this.appConfigService);
 
@@ -20,27 +21,39 @@ class HomePage extends StatelessWidget {
         ),
         bottom: PreferredSize(
             child: AppBar(
-              
-              leading: ButtonTheme(
-                buttonColor: Colors.orangeAccent[100],
-                child: RaisedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              ConfiguracionPage(appConfigService)),
-                    );
-                  },
-                  color: Colors.orangeAccent[100],
-                  child: Icon(Icons.settings),
-                  elevation: 20.0,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                ),
-              ),
               backgroundColor: Colors.orangeAccent[400],
+              automaticallyImplyLeading: false,
               actions: <Widget>[
+                ButtonTheme(
+                  buttonColor: Colors.orangeAccent[100],
+                  minWidth: 60.0,
+                  height: 30.0,
+                  child: RaisedButton(
+                    onPressed: ()  {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                ConfiguracionPage(appConfigService)),
+                      );
+                    },
+                    color: Colors.orangeAccent[100],
+                    padding: EdgeInsets.only(left: 10.0, right: 10.0),
+                    child: Row(
+// Replace with a Row for horizontal icon + text
+                      children: <Widget>[
+                        Icon(Icons.settings),
+                        Text(
+                          "Configuración",
+                          style: TextStyle(fontSize: _fontSize),
+                        ),
+                      ],
+                    ),
+                    elevation: 20.0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  ),
+                ),
                 Padding(
                   padding: EdgeInsets.only(left: 10.0),
                 ),
@@ -48,12 +61,13 @@ class HomePage extends StatelessWidget {
                   decoration: ShapeDecoration(
                     color: Colors.orangeAccent[100],
                     shape:
-                        CircleBorder(side: BorderSide(color: Colors.black38)),
+                    CircleBorder(side: BorderSide(color: Colors.black38)),
                   ),
                   child: IconButton(
                     icon: Icon(Icons.volume_off),
                     color: Colors.black,
-                    onPressed: () {},
+                    onPressed: () {
+                    },
                   ),
                 ),
                 Padding(
@@ -69,7 +83,7 @@ class HomePage extends StatelessWidget {
                         return AlertDialog(
                           shape: RoundedRectangleBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(20.0))),
+                              BorderRadius.all(Radius.circular(20.0))),
                           title: Text("Salir de la aplicación"),
                           content: Text("¿Deseas salir?",
                               style: TextStyle(fontSize: 20.0)),
@@ -140,6 +154,7 @@ class HomePage extends StatelessWidget {
 }
 
 class ChoiceCard extends StatelessWidget {
+
   ChoiceCard({Key key, this.boton, this.appConfigService}) : super(key: key);
   final Boton boton;
   final AppConfigService appConfigService;
@@ -174,12 +189,12 @@ class ChoiceCard extends StatelessWidget {
 class Boton {
   const Boton(
       {this.title,
-      this.logo,
-      this.label,
-      this.route,
-      this.color,
-      this.sem,
-      this.colorin});
+        this.logo,
+        this.label,
+        this.route,
+        this.color,
+        this.sem,
+        this.colorin});
 
   final String title;
   final String logo;
