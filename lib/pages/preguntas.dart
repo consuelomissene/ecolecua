@@ -6,7 +6,7 @@ import 'package:ecolecua/pages/resultado.dart';
 class PreguntasPage extends StatefulWidget {
   final EvaluacionManager evaluacionManager;
   final AppConfigService appConfigService;
-  
+
   const PreguntasPage(this.appConfigService, this.evaluacionManager);
 
   @override
@@ -21,18 +21,21 @@ class _PreguntasState extends State<PreguntasPage> {
   var _evaluacionManager;
   var _appConfigService;
   double _fontSize;
+  String _imagen;
+
   @override
   void initState() {
     super.initState();
     _evaluacionManager = widget.evaluacionManager;
     _appConfigService = widget.appConfigService;
     _index = _evaluacionManager.preguntaActual;
-    
+
     _colorRespuesta = new List<Color>.filled(
         _evaluacionManager.preguntas[_index].respuestas.length,
         Colors.blueAccent);
     _texto = _evaluacionManager.preguntas[_index].texto;
-    _fontSize= widget.appConfigService.appData.fontSize;
+    _imagen = _evaluacionManager.preguntas[_index].imagen;
+    _fontSize = widget.appConfigService.appData.fontSize;
   }
 
   @override
@@ -41,22 +44,30 @@ class _PreguntasState extends State<PreguntasPage> {
       appBar: AppBar(
         backgroundColor: Colors.orange,
         title: Text(
-            "Pregunta " + (_evaluacionManager.preguntaActual + 1).toString(), style: TextStyle(fontSize: _fontSize),),
+          "Pregunta " + (_evaluacionManager.preguntaActual + 1).toString(),
+          style: TextStyle(fontSize: _fontSize),
+        ),
       ),
-      body:
-      Column(
+      body: Column(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(top: 20.0,left: 10.0),
+            padding: EdgeInsets.only(top: 20.0, left: 10.0),
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Text(_texto, style: TextStyle(fontSize: _fontSize),),
+            child: _imagen == null
+                ? Text(_texto, style: TextStyle(fontSize: _fontSize))
+                : Column(children: <Widget>[
+              Text(_texto, style: TextStyle(fontSize: _fontSize)),
+              Image.asset(_imagen, width: 60, height: 60,)
+            ],),
           ),
-
           Padding(
             padding: EdgeInsets.all(20.0),
-            child: Text('Presiona la alternativa que creas correcta',style: TextStyle(fontSize: _fontSize-2),),
+            child: Text(
+              'Presiona la alternativa que creas correcta',
+              style: TextStyle(fontSize: _fontSize - 2),
+            ),
           ),
           Expanded(
             child: respuestas(),
@@ -70,8 +81,8 @@ class _PreguntasState extends State<PreguntasPage> {
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) =>
-                        ResultadoPage(_appConfigService, _evaluacionManager.correctas)));
+                    builder: (BuildContext context) => ResultadoPage(
+                        _appConfigService, _evaluacionManager.correctas)));
           } else {
             Navigator.pushReplacement(
                 context,
@@ -81,9 +92,15 @@ class _PreguntasState extends State<PreguntasPage> {
           }
         },
         label: _evaluacionManager.esUltimaPregunta()
-            ? Text("Evaluar",style: TextStyle(fontSize: _fontSize),)
-            : Text("Siguiente",style: TextStyle(fontSize: _fontSize),),
-        icon:Icon(Icons.arrow_forward),
+            ? Text(
+                "Evaluar",
+                style: TextStyle(fontSize: _fontSize),
+              )
+            : Text(
+                "Siguiente",
+                style: TextStyle(fontSize: _fontSize),
+              ),
+        icon: Icon(Icons.arrow_forward),
         backgroundColor: Colors.orangeAccent,
       ),
     );
@@ -116,7 +133,10 @@ class _PreguntasState extends State<PreguntasPage> {
                       )
                     ],
                   )
-                : Text(item, style: TextStyle(fontSize: _fontSize),),
+                : Text(
+                    item,
+                    style: TextStyle(fontSize: _fontSize),
+                  ),
             onTap: () {
               bool esCorrecta = pregunta.evalua(index);
 
@@ -134,7 +154,6 @@ class _PreguntasState extends State<PreguntasPage> {
                 _evaluacionManager.preguntaActual++;
                 _appConfigService.appData.saveTieneEvaluacion(true);
                 print('Correctas: ' + _evaluacionManager.correctas.toString());
-
               }
             },
           );
@@ -145,5 +164,3 @@ class _PreguntasState extends State<PreguntasPage> {
     return s.contains('jpeg') || s.contains('png');
   }
 }
-
-
