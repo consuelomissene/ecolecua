@@ -15,6 +15,7 @@ class Facebook01VideoPage extends StatefulWidget {
 }
 
 class _Facebook01VideoState extends State<Facebook01VideoPage> {
+
   VideoPlayerController _controller;
   Future<void> _initializeVideoPlayerFuture;
 
@@ -39,7 +40,16 @@ class _Facebook01VideoState extends State<Facebook01VideoPage> {
 
   @override
   Widget build(BuildContext context) {
+    double _fontSize;
+    _fontSize=widget.appConfigService.appData.fontSize;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.lightBlue[900],
+        title: Text(
+          "Tema 1: Cómo publicar una imagen",
+          style: TextStyle(fontSize: _fontSize),
+        ),
+      ),
       body: Center(
         child: Column(
           children: <Widget>[

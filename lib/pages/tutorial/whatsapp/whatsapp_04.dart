@@ -16,7 +16,7 @@ class Whatsapp04Page extends StatelessWidget {
     return Scaffold(
         appBar: PreferredSize(child: AppBar(
           backgroundColor: Colors.green[500],
-          title: Text('Ejercicio 1: Eile hola a ValePony', style: TextStyle(fontSize: 20.0),maxLines: 3,),
+          title: Text('Paso 4: Enviar mensaje', style: TextStyle(fontSize: 20.0),maxLines: 3,),
         ),
             preferredSize: Size.fromHeight(80.0)
         ),

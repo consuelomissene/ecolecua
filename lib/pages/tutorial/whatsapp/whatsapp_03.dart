@@ -25,7 +25,7 @@ class _Whatsapp03State extends State<Whatsapp03Page> {
     return Scaffold(
         appBar: PreferredSize(child: AppBar(
           backgroundColor: Colors.green[500],
-          title: Text('Ejercicio 1: Eile hola a ValePony', style: TextStyle(fontSize: 20.0),maxLines: 3,),
+          title: Text('Paso 3: Escribe el mensaje.', style: TextStyle(fontSize: 20.0),maxLines: 3,),
         ),
             preferredSize: Size.fromHeight(80.0)
         ),

@@ -16,7 +16,7 @@ class Whatsapp01Page extends StatelessWidget {
     return Scaffold(
         appBar: PreferredSize(child: AppBar(
           backgroundColor: Colors.green[500],
-          title: Text('Ejercicio 1: Eile hola a ValePony', style: TextStyle(fontSize: 20.0),maxLines: 3,),
+          title: Text('Paso 1: Presiona el ícono de WhatsApp en la pantalla de inicio de tu celular', style: TextStyle(fontSize: 18.0),maxLines: 3,),
         ),
             preferredSize: Size.fromHeight(80.0)
         ),

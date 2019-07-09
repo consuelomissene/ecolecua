@@ -15,7 +15,11 @@ class Facebook02Page extends StatelessWidget {
     double _fontSize = appConfigService.appData.fontSize;
     return Scaffold(
         appBar: AppBar(
-          title: Text('Ejercicio 1:', style: new TextStyle(fontSize: _fontSize)),
+          backgroundColor: Colors.lightBlue[900],
+          title: Text(
+            "Ejercicio 1: Publica ",
+            style: TextStyle(fontSize: _fontSize),
+          ),
         ),
         body: Stack(
           alignment: const Alignment(0.0, 0.28),
