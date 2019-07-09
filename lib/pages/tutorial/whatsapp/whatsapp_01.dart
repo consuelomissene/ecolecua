@@ -1,15 +1,19 @@
+import 'package:ecolecua/service/app_config_service.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_02.dart';
-import 'package:ecolecua/model/screen_arguments.dart';
 
+
+import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_02.dart';
 
 class Whatsapp01Page extends StatelessWidget {
   
+  final AppConfigService appConfigService;
+
+  const Whatsapp01Page({Key key, this.appConfigService}) : super(key: key);
+  
+  
   @override
   Widget build(BuildContext context) {
-    final ScreenArguments args = ModalRoute.of(context).settings.arguments;
-    print('usuario: ${args.appConfigService.appData.nombre}');
     
     return Scaffold(
         appBar: AppBar(

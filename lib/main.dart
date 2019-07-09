@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ecolecua/pages/config_volumen.dart';
 import 'package:ecolecua/service/app_config_service.dart';
 
-import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_01.dart';
+import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_00.dart';
 
 void main() {
   runApp(new EcolecuaApp(
@@ -50,7 +50,7 @@ class _EcolecuaAppState extends State<EcolecuaApp> {
       title: widget.title,
       home: Builder(builder: (context) => inicio(context)),
       routes: {
-            '/tutorial/whatsapp' : (context) => Whatsapp01Page()
+            '/tutorial/whatsapp' : (context) => Whatsapp()
       },
     );
   }

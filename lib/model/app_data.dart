@@ -8,7 +8,7 @@ class AppData {
 
   AppData() {
     volumen = 50.0;
-    fontSize = 12.0;
+    fontSize = 22.0;
     tieneEvaluacion = false;
   }
 
@@ -38,10 +38,7 @@ class AppData {
     await prefs.setBool("tieneEvaluacion", tieneEvaluacion);
     this.tieneEvaluacion = tieneEvaluacion;
   }
-
-
-
-
+  
 
 
 }
