@@ -13,13 +13,14 @@ class ConfigFontPage extends StatefulWidget {
 }
 
 class ConfigFontPageState extends State<ConfigFontPage> {
-  
+  double _fontSize;
   var configService;
 
   @override
   void initState() {
     super.initState();
     configService = widget.appConfigService;
+    _fontSize = widget.appConfigService.appData.fontSize;
   }
 
   @override
@@ -27,13 +28,15 @@ class ConfigFontPageState extends State<ConfigFontPage> {
     return Scaffold(
       body: Container(
         margin: EdgeInsets.all(20.0),
-        padding: EdgeInsets.all(10.0),
+        padding: EdgeInsets.fromLTRB(10.0, 40.0, 0.0, 10.0),
         child: Center(
           child: Column(children: [
             Padding(
               padding: EdgeInsets.all(30.0),
             ),
-            Text("Presiona el botón + cuando te guste el tamaño de la letra"),
+            Center(child:
+            Text("Mueve el botón hasta que te guste el tamaño de la letra",style:TextStyle(fontSize: _fontSize+10.0)),
+            ),
             Padding(
               padding: EdgeInsets.all(15.0),
             ),
@@ -41,34 +44,42 @@ class ConfigFontPageState extends State<ConfigFontPage> {
                 value: configService.appData.fontSize,
                 min: 22.0,
                 max: 26.0,
-                divisions: 4,
-                label: '${configService.appData.fontSize.round()}',
+                divisions: 8,
+                //label: '${configService.appData.fontSize.round()}',
                 onChanged: (double value) {
                   setState(() => configService.appData.fontSize = value);
                 }),
             Padding(
               padding: EdgeInsets.all(15.0),
             ),
-            SizedBox(
-              height: 50,
-              width: 140,
-              child: MaterialButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15)),
-                  onPressed: () {
-                    print('font configurada en: ${configService.appData.fontSize}');
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => ConfigNombrePage(widget.appConfigService)));
-                  },
-                  color: Theme.of(context).primaryColor,
-                  child:
-                      Text("Continuar", style: TextStyle(color: Colors.white))),
-            )
+            Container(
+              padding: EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 0.0),
+              child:
+              ButtonTheme(
+                  minWidth: 250.0,
+                  height: 40.0,
+                  child: RaisedButton(
+                      elevation: 20.0,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                              Radius.circular(20.0))),
+                      color: Colors.orangeAccent,
+                      onPressed: () {
+                        print('font configurada en: ${configService.appData.fontSize}');
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) => ConfigNombrePage(widget.appConfigService)));
+                      },
+
+                      child: Text('Continuar', style: TextStyle(
+                          fontSize: _fontSize, color: Colors.white)))
+              ),
+            ),
           ]),
         ),
       ),
     );
   }
 }
+
