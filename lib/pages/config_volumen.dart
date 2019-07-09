@@ -4,9 +4,7 @@ import 'package:ecolecua/pages/config_font.dart';
 
 class ConfigVolumenPage extends StatefulWidget {
   final AppConfigService appConfigService;
-
   const ConfigVolumenPage(this.appConfigService);
-  
   @override
   _ConfigVolumenState createState() => new _ConfigVolumenState();
   
@@ -14,25 +12,31 @@ class ConfigVolumenPage extends StatefulWidget {
 
 class _ConfigVolumenState extends State<ConfigVolumenPage> {
   var configService;
+  double _fontSize;
 
   @override
   void initState() {
     super.initState();
     configService = widget.appConfigService;
+    _fontSize = widget.appConfigService.appData.fontSize;
   }
 
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       body: Container(
         margin: EdgeInsets.all(20.0),
-        padding: EdgeInsets.all(10.0),
+        padding: EdgeInsets.fromLTRB(10.0, 100.0, 0.0, 10.0),
         child: Center(
           child: Column(children: [
             Padding(
               padding: EdgeInsets.all(30.0),
             ),
-            Text("Presiona el botón + hasta que escuches bien"),
+            Center(child:Text("Mueve el botón hasta que escuches bien",
+            style:TextStyle(fontSize: _fontSize+10.0)),
+            ),
             Padding(
               padding: EdgeInsets.all(15.0),
             ),
@@ -48,23 +52,30 @@ class _ConfigVolumenState extends State<ConfigVolumenPage> {
             Padding(
               padding: EdgeInsets.all(15.0),
             ),
-            SizedBox(
-              height: 50,
-              width: 140,
-              child: MaterialButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15)),
-                  onPressed: () {
-                    print('volumen configurado a: ${configService.appData.volumen}');
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => ConfigFontPage(widget.appConfigService)));
-                  },
-                  color: Theme.of(context).primaryColor,
-                  child:
-                      Text("Continuar", style: TextStyle(color: Colors.white))),
-            )
+            Container(
+              padding: EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 0.0),
+              child:
+              ButtonTheme(
+                  minWidth: 250.0,
+                  height: 40.0,
+                  child: RaisedButton(
+                      elevation: 20.0,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                              Radius.circular(20.0))),
+                      color: Colors.orangeAccent,
+                      onPressed: () {
+                        print('volumen configurado a: ${configService.appData.volumen}');
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) => ConfigFontPage(widget.appConfigService)));
+                      },
+                      child: Text('Continuar', style: TextStyle(
+                          fontSize: _fontSize, color: Colors.white)))
+              ),
+            ),
+
           ]),
         ),
       ),
