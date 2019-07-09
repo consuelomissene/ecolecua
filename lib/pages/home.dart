@@ -5,10 +5,9 @@ import 'dart:io';
 import 'Config.dart';
 
 class HomePage extends StatelessWidget {
-  
   final AppConfigService appConfigService;
   HomePage(this.appConfigService);
-  
+
   @override
   Widget build(BuildContext context) {
     double _fontSize = appConfigService.appData.fontSize;
@@ -21,39 +20,27 @@ class HomePage extends StatelessWidget {
         ),
         bottom: PreferredSize(
             child: AppBar(
-              backgroundColor: Colors.orangeAccent[400],
-              automaticallyImplyLeading: false,
-              actions: <Widget>[
-                ButtonTheme(
-                  buttonColor: Colors.orangeAccent[100],
-                  minWidth: 60.0,
-                  height: 30.0,
-                  child: RaisedButton(
-                    onPressed: ()  {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    ConfiguracionPage(appConfigService)),
-                          );
-                        },
-                    color: Colors.orangeAccent[100],
-                    padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                    child: Row(
-// Replace with a Row for horizontal icon + text
-                      children: <Widget>[
-                        Icon(Icons.settings),
-                        Text(
-                          "Configuración",
-                          style: TextStyle(fontSize: _fontSize),
-                        ),
-                      ],
-                    ),
-                    elevation: 20.0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                  ),
+              
+              leading: ButtonTheme(
+                buttonColor: Colors.orangeAccent[100],
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              ConfiguracionPage(appConfigService)),
+                    );
+                  },
+                  color: Colors.orangeAccent[100],
+                  child: Icon(Icons.settings),
+                  elevation: 20.0,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
                 ),
+              ),
+              backgroundColor: Colors.orangeAccent[400],
+              actions: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(left: 10.0),
                 ),
@@ -66,8 +53,7 @@ class HomePage extends StatelessWidget {
                   child: IconButton(
                     icon: Icon(Icons.volume_off),
                     color: Colors.black,
-                    onPressed: () {
-                    },
+                    onPressed: () {},
                   ),
                 ),
                 Padding(
@@ -154,7 +140,6 @@ class HomePage extends StatelessWidget {
 }
 
 class ChoiceCard extends StatelessWidget {
-  
   ChoiceCard({Key key, this.boton, this.appConfigService}) : super(key: key);
   final Boton boton;
   final AppConfigService appConfigService;
