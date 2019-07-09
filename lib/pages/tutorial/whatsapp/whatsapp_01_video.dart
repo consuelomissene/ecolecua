@@ -21,13 +21,19 @@ class _Whatsapp01VideoState extends State<Whatsapp01VideoPage> {
 
   @override
   void initState() {
+    
+    // https://poc-vvr.s3-us-west-2.amazonaws.com/ecolecua/whatsapp+tutorial.mp4
     super.initState();
     _controller = VideoPlayerController.network(
-        'https://poc-vvr.s3-us-west-2.amazonaws.com/ecolecua/whatsapp+tutorial.MP4')
-      ..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {});
-      });
+      'https://poc-vvr.s3-us-west-2.amazonaws.com/ecolecua/whatsapp+tutorial.mp4',
+
+    );
+
+    // Initialize the controller and store the Future for later use.
+    _initializeVideoPlayerFuture = _controller.initialize();
+
+    // Use the controller to loop the video.
+    _controller.setLooping(true);
     _fontSize = widget.appConfigService.appData.fontSize;
   }
 
@@ -58,7 +64,7 @@ class _Whatsapp01VideoState extends State<Whatsapp01VideoPage> {
                   // If the VideoPlayerController has finished initialization, use
                   // the data it provides to limit the aspect ratio of the video.
                   return AspectRatio(
-                    aspectRatio: 1.1,
+                    aspectRatio: 0.84,
                     // Use the VideoPlayer widget to display the video.
                     child: VideoPlayer(_controller),
                   );
