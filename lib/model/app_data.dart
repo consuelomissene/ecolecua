@@ -3,12 +3,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AppData {
   String nombre;
   double fontSize;
+  double secondFontSize;
   double volumen;
   bool tieneEvaluacion;
 
   AppData() {
     volumen = 50.0;
-    fontSize = 12.0;
+    fontSize = 22.0;
+    secondFontSize =18.0;
     tieneEvaluacion = false;
   }
 
