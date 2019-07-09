@@ -50,12 +50,18 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   Padding(padding: EdgeInsets.only(left: 20.0),),
-                  FloatingActionButton(
-                    backgroundColor: Colors.orangeAccent[200],
-                    onPressed: () {null;},
-                    child:Icon(Icons.volume_off, semanticLabel: 'Sin sonido',color:Colors.black),
-                    elevation: 20.0,
-
+                  Ink(
+                    decoration: ShapeDecoration(
+                      color: Colors.orangeAccent,
+                      shape: CircleBorder(side: BorderSide(color: Colors.black38)),
+                    ),
+                    child: IconButton(
+                      icon: Icon(Icons.volume_off),
+                      color: Colors.black,
+                      onPressed: () {
+                        null;
+                      },
+                    ),
                   ),
                   Padding(padding: EdgeInsets.only(left: 20.0),),
                     FloatingActionButton.extended(
@@ -103,13 +109,16 @@ class HomePage extends StatelessWidget {
 
                 ],
               )
-              , preferredSize: Size.fromHeight(60.0)),
+              , preferredSize: Size.fromHeight(80.0)),
         ),
         body: Column(
           children: <Widget>[
             Padding(
-              padding:EdgeInsets.symmetric()
-            ),
+              padding:EdgeInsets.all(20.0),
+          child: Center(child:
+      Text('¿Qué aplicación deseas aprender hoy?',style: TextStyle(fontSize: _fontSize+3.0,fontWeight: FontWeight.w500)))
+      ),
+
             Expanded(
               child: GridView.count(
                 primary: false,
@@ -123,7 +132,8 @@ class HomePage extends StatelessWidget {
                         appConfigService: appConfigService,
                         boton: botones[index]),
                   );
-                }),
+                }
+                ),
               ),
             ),
           ],

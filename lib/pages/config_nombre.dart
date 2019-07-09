@@ -14,6 +14,7 @@ class ConfigNombrePage extends StatefulWidget {
 class _ConfigNombreState extends State<ConfigNombrePage> {
   final myController = TextEditingController();
   double _fontSize;
+  
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
