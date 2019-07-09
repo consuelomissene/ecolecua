@@ -115,7 +115,7 @@ Widget continuarButton(AppConfigService appConfigService,BuildContext context) {
   return MaterialButton(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       onPressed: () {
-        if (appConfigService.appData.tieneEvaluacion) {
+        if (appConfigService.appData.tieneEvaluacion != null && appConfigService.appData.tieneEvaluacion) {
           Navigator.push(
               context,
               MaterialPageRoute(
