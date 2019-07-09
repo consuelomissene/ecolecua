@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:ecolecua/pages/tutorial/whatsapp/whatsapp_00b.dart';
+import 'package:ecolecua/pages/tutorial/facebook/facebook_00b.dart';
 import 'package:ecolecua/model/screen_arguments.dart';
 
-class Whatsapp extends StatelessWidget {
+
+class Facebook extends StatelessWidget {
   //Facebook
   @override
   Widget build(BuildContext context) {
-    
     final ScreenArguments args = ModalRoute.of(context).settings.arguments;
     double _fontSize = args.appConfigService.appData.fontSize;
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green[500],
+        backgroundColor: Colors.lightBlue[900],
         title: Text(
-          "Whatsapp",
+          "Facebook",
           style: TextStyle(fontSize: _fontSize),
         ),
       ),
@@ -32,7 +32,7 @@ class Whatsapp extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
                 child:
                 ButtonTheme(
-                  buttonColor: Colors.lightGreenAccent[100],
+                  buttonColor: Colors.lightBlueAccent[100],
 
                   minWidth: 400.0,
                   height: 50.0,
@@ -40,12 +40,12 @@ class Whatsapp extends StatelessWidget {
                   RaisedButton(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                    child: Text('T1: Cómo enviar un mensaje',
-                        style: TextStyle(fontSize: _fontSize - 4, fontWeight: FontWeight.w500)),
+                    child: Text('T1: Cómo publicar una imagen',
+                        style: TextStyle(fontSize:_fontSize-4, fontWeight: FontWeight.w500)),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Whatsapp00bPage(appConfigService: args.appConfigService)),
+                        MaterialPageRoute(builder: (context) => Facebook00bPage()),
                       );
                     },
                   ),
@@ -56,7 +56,7 @@ class Whatsapp extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
                 child:
                 ButtonTheme(
-                  buttonColor: Colors.lightGreenAccent[100],
+                  buttonColor: Colors.lightBlueAccent[100],
 
                   minWidth: 400.0,
                   height: 50.0,
@@ -65,7 +65,7 @@ class Whatsapp extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20.0))),
                     child: Text('Otro tema',
-                        style: TextStyle(fontSize: _fontSize - 4, fontWeight: FontWeight.w500)),
+                        style: TextStyle(fontSize:_fontSize-4, fontWeight: FontWeight.w500)),
                     onPressed: () {
                     },
                   ),
@@ -78,4 +78,4 @@ class Whatsapp extends StatelessWidget {
       ),
     );
   }
-} // Facebook
+}

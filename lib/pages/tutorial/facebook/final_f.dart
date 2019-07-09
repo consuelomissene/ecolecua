@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:ecolecua/service/app_config_service.dart';
 import 'package:ecolecua/pages/home.dart';
-import 'package:ecolecua/model/screen_arguments.dart';
+import 'package:ecolecua/pages/tutorial/facebook/facebook_00.dart';
 
-class EcolecuaW extends StatelessWidget{
+class EcolecuaF extends StatelessWidget{
   final AppConfigService appConfigService;
-  EcolecuaW(this.appConfigService);
+  EcolecuaF(this.appConfigService);
   double _fontSize;
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class EcolecuaW extends StatelessWidget{
                       child: CircleAvatar(
                         foregroundColor: Colors.blue,
                         backgroundColor: Colors.blue,
-                        backgroundImage: AssetImage('assets/images/logo.jpg'),
+                        backgroundImage: AssetImage('assets/logo.jpg'),
                       ),
                       width: 310.0,
                       height: 310.0,
@@ -75,8 +75,11 @@ class EcolecuaW extends StatelessWidget{
                                 borderRadius: BorderRadius.all(Radius.circular(20.0))),
                             color:Colors.orangeAccent,
                             onPressed: () {
-                              Navigator.pushNamed(context, "/tutorial/whatsapp",
-                                  arguments: ScreenArguments(appConfigService));
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Facebook()),
+                              );
                             },
                             child: Text('Volver al menú de temas', style: TextStyle(fontSize: _fontSize),))
                     ),

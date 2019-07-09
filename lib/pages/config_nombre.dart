@@ -34,6 +34,7 @@ class _ConfigNombreState extends State<ConfigNombrePage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: Container(
         padding: EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 0.0),
         child:Column(
