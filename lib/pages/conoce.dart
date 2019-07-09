@@ -119,7 +119,8 @@ Widget continuarButton(AppConfigService appConfigService,BuildContext context) {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (BuildContext context) => HomePage(appConfigService)));
+                  //builder: (BuildContext context) => HomePage(appConfigService)));
+                  builder: (BuildContext context) => PreguntasPage(appConfigService, new EvaluacionManager())));
         } else {
           Navigator.push(
               context,
