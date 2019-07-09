@@ -20,7 +20,7 @@ class _PreguntasState extends State<PreguntasPage> {
   int _index;
   var _evaluacionManager;
   var _appConfigService;
-
+  double _fontSize;
   @override
   void initState() {
     super.initState();
@@ -31,14 +31,16 @@ class _PreguntasState extends State<PreguntasPage> {
         _evaluacionManager.preguntas[_index].respuestas.length,
         Colors.blueAccent);
     _texto = _evaluacionManager.preguntas[_index].texto;
+    _fontSize= widget.appConfigService.appData.fontSize;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.orange,
         title: Text(
-            "Pregunta " + (_evaluacionManager.preguntaActual + 1).toString()),
+            "Pregunta " + (_evaluacionManager.preguntaActual + 1).toString(), style: TextStyle(fontSize: _fontSize),),
       ),
       body: Column(
         children: <Widget>[
@@ -47,9 +49,9 @@ class _PreguntasState extends State<PreguntasPage> {
           ),
           Padding(
             padding: const EdgeInsets.all(18.0),
-            child: Text(_texto),
+            child: Text(_texto, style: TextStyle(fontSize: _fontSize),),
           ),
-          Text('Presiona la alternativa que creas correcta'),
+          Text('Presiona la alternativa que creas correcta',style: TextStyle(fontSize: _fontSize),),
           Padding(
             padding: EdgeInsets.only(top: 15.0),
           ),
@@ -91,6 +93,7 @@ class _PreguntasState extends State<PreguntasPage> {
         itemBuilder: (context, index) {
           final item = items[index];
           return ListTile(
+
             leading: CircleAvatar(
                 backgroundColor: _colorRespuesta[index],
                 child: Text(new String.fromCharCodes([65 + index]),
@@ -127,6 +130,7 @@ class _PreguntasState extends State<PreguntasPage> {
                 _evaluacionManager.preguntaActual++;
                 _appConfigService.appData.saveTieneEvaluacion(true);
                 print('Correctas: ' + _evaluacionManager.correctas.toString());
+
               }
             },
           );
@@ -137,3 +141,5 @@ class _PreguntasState extends State<PreguntasPage> {
     return s.contains('jpeg') || s.contains('png');
   }
 }
+
+

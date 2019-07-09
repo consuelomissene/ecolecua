@@ -3,7 +3,6 @@ import 'package:ecolecua/service/app_config_service.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  
   final AppConfigService appConfigService;
 
   const HomePage(this.appConfigService);
@@ -42,6 +41,7 @@ class HomePage extends StatelessWidget {
 }
 
 class ChoiceCard extends StatelessWidget {
+
   const ChoiceCard({Key key, this.boton, this.appConfigService})
       : super(key: key);
   final Boton boton;
@@ -49,58 +49,72 @@ class ChoiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-        color: Colors.white,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            RaisedButton(
-              color: Colors.white,
-              child: Column(
-                children: <Widget>[
-                  Image.asset(
-                    boton.logo,
-                    width: 80,
-                    height: 80,
-                    alignment: Alignment.topCenter,
-                  ),
-                  Text(boton.title)
-                ],
-              ),
-              onPressed: () {
-                Navigator.pushNamed(context, boton.route,
-                    arguments: ScreenArguments(appConfigService));
-              },
-            )
-          ],
-        ));
+    return RaisedButton(
+      elevation: 20.0,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20.0))),
+      color: boton.color,
+      child: Column(children: [
+        Image(
+            image: AssetImage(boton.logo
+            ),
+            semanticLabel: boton.sem,
+            alignment: Alignment.topCenter,
+            width: 180.0,
+            height: 140.0),
+        Text(boton.title,
+          style: new TextStyle(
+            color: boton.colorin
+          ))
+
+      ]),
+      onPressed: () {
+        Navigator.pushNamed(context, boton.route,
+            arguments: ScreenArguments(appConfigService));
+      },
+    );
   }
 }
 
 class Boton {
-  const Boton({this.title, this.logo, this.label, this.route});
+  const Boton({this.title, this.logo, this.label, this.route, this.color, this.sem, this.colorin});
 
   final String title;
   final String logo;
   final String label;
   final String route;
+  final Color color;
+  final Color colorin;
+  final String sem;
 }
 
 const List<Boton> botones = const <Boton>[
   const Boton(
-      title: 'Facebook',
-      logo: "assets/images/app_logos/facebook.jpg",
-      label: "Logo de Facebook",
-      route: null),
-  const Boton(
       title: 'Youtube',
       logo: "assets/images/app_logos/youtube.jpg",
       label: "Logo de Youtube",
-      route: null),
+      route: null,
+      color: Colors.white,
+    colorin: Colors.black,
+    sem: 'botón a menú de Youtube'
+  ),
+  const Boton(
+      title: 'Facebook',
+      logo: "assets/images/app_logos/facebook.jpg",
+      label: "Logo de Facebook",
+      route: null,
+      color: Color(0xFF01579B),
+    colorin: Colors.white,
+    sem: 'Botón a menú de Facebook'
+  ),
+
   const Boton(
       title: 'WhatsApp',
       logo: "assets/images/app_logos/whatsapp.jpg",
       label: "Logo de WhatsApp",
-      route: '/tutorial/whatsapp'),
+      route: '/tutorial/whatsapp',
+      color: Color(0xFF00C853),
+    colorin: Colors.black,
+    sem:'Botón a menú de whatsapp'
+  ),
 ];
