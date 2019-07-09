@@ -38,9 +38,9 @@ class _Whatsapp05State extends State<Whatsapp05Page> {
     _fontSize=widget.appConfigService.appData.fontSize;
       return Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.redAccent[400],
+            backgroundColor: Colors.green[500],
             title: Text(
-              'Tema 1: Cómo buscar un video',
+              '¡Bien hecho!',
               style: TextStyle(fontSize: _fontSize),
             ),
           ),

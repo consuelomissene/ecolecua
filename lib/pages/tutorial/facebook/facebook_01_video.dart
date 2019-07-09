@@ -53,9 +53,6 @@ class _Facebook01VideoState extends State<Facebook01VideoPage> {
       body: Center(
         child: Column(
           children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(top: 20.0),
-            ),
             FutureBuilder(
               future: _initializeVideoPlayerFuture,
               builder: (context, snapshot) {
@@ -73,6 +70,13 @@ class _Facebook01VideoState extends State<Facebook01VideoPage> {
                   return Center(child: CircularProgressIndicator());
                 }
               },
+            ),
+            Padding(
+                padding: EdgeInsets.only(top: 15.0,left: 20.0,right: 20.0, bottom: 80.0),
+                child: Text('Puede pausar y continuar el video apretando el'
+                    ' botón con forma circular. Además, si lo desea, puede  ladear su celular para ampliar la pantalla, y volverla a enderezar'
+                    ' para dejar de ver el video',
+                  style: TextStyle(fontSize: _fontSize-5),)
             ),
             Padding(
               padding: EdgeInsets.only(top: 15.0),
@@ -117,6 +121,6 @@ Widget continuarButton(AppConfigService appConfigService,BuildContext context) {
             MaterialPageRoute(
                 builder: (BuildContext context) => Facebook01Page(appConfigService: appConfigService)));
       },
-      color: Theme.of(context).primaryColor,
-      child: Text("Continuar", style: TextStyle(color: Colors.white)));
+      color: Colors.lightBlue[900],
+      child: Text("Continuar", style: TextStyle(fontSize: 22.0, color: Colors.white)));
 }
