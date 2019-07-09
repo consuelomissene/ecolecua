@@ -51,8 +51,22 @@ class _ConfigNombreState extends State<ConfigNombrePage> {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: myController,
+            child: Container(
+              width: 370.0,
+              child: TextField(
+                controller: myController,
+                decoration: new InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.deepOrange, width: 2.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.deepOrange, width: 2.0),
+                  ),
+                  hintText: '¿Cuál es tu nombre?',
+                  icon: Icon(Icons.edit, semanticLabel: 'Editar nombre de usuario',),
+
+                ),
+              ),
             ),
           ),
           Padding(
@@ -79,7 +93,7 @@ class _ConfigNombreState extends State<ConfigNombrePage> {
                               builder: (BuildContext context) =>
                                   ConocePage(widget.appConfigService)));
                     },
-                    child: Text("Empecemos", style: TextStyle(
+                    child: Text("Continuar", style: TextStyle(
                         fontSize: _fontSize, color: Colors.white)))
             ),
           ),

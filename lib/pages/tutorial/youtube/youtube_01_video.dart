@@ -17,9 +17,11 @@ class Youtube01VideoPage extends StatefulWidget {
 class _Youtube01VideoState extends State<Youtube01VideoPage> {
   VideoPlayerController _controller;
   Future<void> _initializeVideoPlayerFuture;
+  double _fontSize;
 
   @override
   void initState() {
+    _fontSize=widget.appConfigService.appData.fontSize;
     super.initState();
     _controller = VideoPlayerController.network(
         'https://poc-vvr.s3-us-west-2.amazonaws.com/ecolecua/whatsapp+tutorial.MP4')
@@ -40,6 +42,13 @@ class _Youtube01VideoState extends State<Youtube01VideoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.redAccent[400],
+        title: Text(
+          'Tema 1: Cómo buscar un video',
+          style: TextStyle(fontSize: _fontSize),
+        ),
+      ),
       body: Center(
         child: Column(
           children: <Widget>[
@@ -96,7 +105,7 @@ class _Youtube01VideoState extends State<Youtube01VideoPage> {
       ),
     );
   }
-}
+
 
 Widget continuarButton(AppConfigService appConfigService,BuildContext context) {
   return MaterialButton(
@@ -109,4 +118,5 @@ Widget continuarButton(AppConfigService appConfigService,BuildContext context) {
       },
       color: Theme.of(context).primaryColor,
       child: Text("Continuar", style: TextStyle(color: Colors.white)));
+}
 }

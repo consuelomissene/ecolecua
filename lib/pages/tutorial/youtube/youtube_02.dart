@@ -12,11 +12,16 @@ class Youtube02Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    double _fontSize;
+    _fontSize=appConfigService.appData.fontSize;
     return Scaffold(
         appBar: AppBar(
-          title: Text('Whatsapp'),
-        ),
+    backgroundColor: Colors.redAccent[400],
+      title: Text(
+        'Ejercicio 1: Busca un video de Chayanne',
+        style: TextStyle(fontSize: _fontSize), maxLines: 3,
+      ),
+    ),
         body: Stack(
           alignment: const Alignment(0.0, 0.28),
           children: <Widget>[
@@ -31,7 +36,7 @@ class Youtube02Page extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (BuildContext context) => Youtube03Page()));
+                          builder: (BuildContext context) => Youtube03Page(appConfigService: appConfigService,)));
                 },
                 color: Colors.transparent,
               ),

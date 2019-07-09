@@ -14,14 +14,14 @@ class HomePage extends StatelessWidget {
     double _fontSize = appConfigService.appData.fontSize;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.orangeAccent[700],
+        backgroundColor: Colors.orangeAccent[400],
         title: Text(
           'Ecolecuá',
           style: TextStyle(fontSize: 40.0),
         ),
         bottom: PreferredSize(
             child: AppBar(
-              backgroundColor: Colors.orangeAccent[700],
+              backgroundColor: Colors.orangeAccent[400],
               automaticallyImplyLeading: false,
               actions: <Widget>[
                 ButtonTheme(
@@ -113,7 +113,7 @@ class HomePage extends StatelessWidget {
                   },
                   icon: Icon(Icons.close),
                   label: Text(
-                    'salir',
+                    'Salir',
                     style: TextStyle(fontSize: _fontSize),
                   ),
                   elevation: 20.0,

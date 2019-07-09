@@ -1,6 +1,7 @@
 import 'package:ecolecua/pages/home.dart';
 import 'package:ecolecua/service/app_config_service.dart';
 import 'package:flutter/material.dart';
+import 'package:ecolecua/pages/tutorial/facebook/final_f.dart';
 
 class Facebook05Page extends StatefulWidget {
   final AppConfigService appConfigService;
@@ -22,7 +23,7 @@ class _Facebook05State extends State<Facebook05Page> {
             () => Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (BuildContext context) => HomePage(widget.appConfigService))));
+                builder: (BuildContext context) => EcolecuaF(widget.appConfigService))));
   }
 
   @override

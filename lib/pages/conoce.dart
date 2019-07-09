@@ -8,7 +8,6 @@ import 'package:ecolecua/service/evaluacion_manager.dart';
 
 class ConocePage extends StatefulWidget {
   final AppConfigService appConfigService;
-
   const ConocePage(this.appConfigService);
   
   @override
@@ -18,6 +17,7 @@ class ConocePage extends StatefulWidget {
 class _ConoceState extends State<ConocePage> {
   VideoPlayerController _controller;
   Future<void> _initializeVideoPlayerFuture;
+  double _fontSize;
 
   @override
   void initState() {
@@ -26,6 +26,7 @@ class _ConoceState extends State<ConocePage> {
     // or the internet.
     _controller = VideoPlayerController.network(
       'https://poc-vvr.s3-us-west-2.amazonaws.com/ecolecua/introduccion.mp4',
+
     );
 
     // Initialize the controller and store the Future for later use.
@@ -33,7 +34,7 @@ class _ConoceState extends State<ConocePage> {
 
     // Use the controller to loop the video.
     _controller.setLooping(true);
-
+    _fontSize = widget.appConfigService.appData.fontSize;
     super.initState();
   }
 
@@ -48,16 +49,17 @@ class _ConoceState extends State<ConocePage> {
 
   @override
   Widget build(BuildContext context) {
+    _fontSize = widget.appConfigService.appData.fontSize;
     return Scaffold(
       body: Center(
         child: Column(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.only(top: 20.0),
+              padding: EdgeInsets.only(top: 80.0),
             ),
             Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: Text('Conoce nuestra aplicación'),
+              padding: const EdgeInsets.only(top:20.0,bottom: 30.0),
+              child: Text('Conoce nuestra aplicación:',style: TextStyle(fontSize: _fontSize+5),),
             ),
             FutureBuilder(
               future: _initializeVideoPlayerFuture,
@@ -78,7 +80,11 @@ class _ConoceState extends State<ConocePage> {
               },
             ),
             Padding(
-              padding: EdgeInsets.only(top: 15.0),
+              padding: EdgeInsets.only(top: 15.0,left: 20.0,right: 20.0, bottom: 80.0),
+              child: Text('Puede pausar y continuar el video apretando el'
+                  ' botón con forma circular. Además, si lo desea, puede  ladear su celular para ampliar la pantalla, y volverla a enderezar'
+                  ' para dejar de ver el video',
+              style: TextStyle(fontSize: _fontSize-5),)
             ),
             SizedBox(
               height: 50,
@@ -89,6 +95,7 @@ class _ConoceState extends State<ConocePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+
         onPressed: () {
           // Wrap the play or pause in a call to `setState`. This ensures the
           // correct icon is shown.
@@ -109,28 +116,32 @@ class _ConoceState extends State<ConocePage> {
       ),
     );
   }
-}
 
-Widget continuarButton(AppConfigService appConfigService,BuildContext context) {
-  return MaterialButton(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      onPressed: () {
-        if (appConfigService.appData.tieneEvaluacion != null && appConfigService.appData.tieneEvaluacion) {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
+  Widget continuarButton(AppConfigService appConfigService,
+      BuildContext context) {
+    return MaterialButton(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        onPressed: () {
+          if (appConfigService.appData.tieneEvaluacion != null &&
+              appConfigService.appData.tieneEvaluacion) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
                   //builder: (BuildContext context) => HomePage(appConfigService)));
-                  builder: (BuildContext context) => PreguntasPage(appConfigService, new EvaluacionManager())));
-        } else {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (BuildContext context) => PreguntasPage(appConfigService, new EvaluacionManager())));
-        }
-        
-        
-        
-      },
-      color: Theme.of(context).primaryColor,
-      child: Text("Continuar", style: TextStyle(color: Colors.white)));
+                    builder: (BuildContext context) =>
+                        PreguntasPage(
+                            appConfigService, new EvaluacionManager())));
+          } else {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        PreguntasPage(
+                            appConfigService, new EvaluacionManager())));
+          }
+        },
+        color: Colors.orangeAccent,
+        child: Text("Continuar",
+            style: TextStyle(fontSize: _fontSize, color: Colors.white)));
+  }
 }

@@ -35,8 +35,11 @@ class _Whatsapp05State extends State<Whatsapp05Page> {
     @override
     Widget build(BuildContext context) {
       return Scaffold(
-          appBar: AppBar(
-            title: Text('Whatsapp'),
+          appBar: PreferredSize(child: AppBar(
+            backgroundColor: Colors.green[500],
+            title: Text('Ejercicio 1: Eile hola a ValePony', style: TextStyle(fontSize: 20.0),maxLines: 3,),
+          ),
+              preferredSize: Size.fromHeight(80.0)
           ),
           body: Stack(
             alignment: const Alignment(0.85, 0.0),

@@ -17,6 +17,7 @@ class Whatsapp01VideoPage extends StatefulWidget {
 class _Whatsapp01VideoState extends State<Whatsapp01VideoPage> {
   VideoPlayerController _controller;
   Future<void> _initializeVideoPlayerFuture;
+  double _fontSize;
 
   @override
   void initState() {
@@ -27,6 +28,7 @@ class _Whatsapp01VideoState extends State<Whatsapp01VideoPage> {
         // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
         setState(() {});
       });
+    _fontSize = widget.appConfigService.appData.fontSize;
   }
 
   @override
@@ -40,6 +42,9 @@ class _Whatsapp01VideoState extends State<Whatsapp01VideoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          backgroundColor:  Colors.green[500],
+          title: Text('Tema 1: Cómo enviar un mensaje',style: TextStyle(fontSize: _fontSize),)),
       body: Center(
         child: Column(
           children: <Widget>[
@@ -65,11 +70,15 @@ class _Whatsapp01VideoState extends State<Whatsapp01VideoPage> {
               },
             ),
             Padding(
-              padding: EdgeInsets.only(top: 15.0),
+                padding: EdgeInsets.only(top: 15.0,left: 20.0,right: 20.0, bottom: 80.0),
+                child: Text('Puede pausar y continuar el video apretando el'
+                    ' botón con forma circular. Además, si lo desea, puede  ladear su celular para ampliar la pantalla, y volverla a enderezar'
+                    ' para dejar de ver el video',
+                  style: TextStyle(fontSize: _fontSize-5),)
             ),
             SizedBox(
               height: 50,
-              width: 140,
+              width: 200,
               child: continuarButton(widget.appConfigService, context),
             )
           ],
@@ -96,17 +105,21 @@ class _Whatsapp01VideoState extends State<Whatsapp01VideoPage> {
       ),
     );
   }
-}
 
-Widget continuarButton(AppConfigService appConfigService,BuildContext context) {
-  return MaterialButton(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      onPressed: () {
+
+  Widget continuarButton(AppConfigService appConfigService,
+      BuildContext context) {
+    return MaterialButton(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        onPressed: () {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (BuildContext context) => Whatsapp01Page(appConfigService: appConfigService)));
-      },
-      color: Theme.of(context).primaryColor,
-      child: Text("Continuar", style: TextStyle(color: Colors.white)));
+                  builder: (BuildContext context) =>
+                      Whatsapp01Page(appConfigService: appConfigService)));
+        },
+        color:  Colors.green[500],
+        child: Text("Ir a ejercitar",
+            style: TextStyle(fontSize: _fontSize, color: Colors.white)));
+  }
 }

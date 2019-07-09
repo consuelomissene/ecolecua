@@ -53,8 +53,19 @@ class _Configuracion extends State<ConfiguracionPage> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextField(
+              child:  TextField(
                 controller: myController,
+                decoration: new InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.deepOrange, width: 2.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.deepOrange, width: 2.0),
+                  ),
+                  hintText: widget.appConfigService.appData.nombre,
+                  icon: Icon(Icons.edit, semanticLabel: 'Cambiar nombre de usuario',),
+
+                ),
               ),
             ),
             Padding(
@@ -77,7 +88,7 @@ class _Configuracion extends State<ConfiguracionPage> {
                 }),
 
             Padding(
-              padding: EdgeInsets.all(30.0),
+              padding: EdgeInsets.all(40.0),
             ),
             Center(child:
             Text("Mueve el botón hasta que te guste el tamaño de la letra",style:TextStyle(fontSize: _fontSize-4)),
@@ -95,9 +106,8 @@ class _Configuracion extends State<ConfiguracionPage> {
 
 
             Padding(
-              padding: EdgeInsets.only(top:10.0),
+              padding: EdgeInsets.only(top:80.0),
             ),
-
 
               ButtonTheme(
                   minWidth: 250.0,

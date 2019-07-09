@@ -34,8 +34,7 @@ class Facebook03Page extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Facebook04Page()),
-                        );
+                              builder: (BuildContext context) => Facebook04Page(appConfigService: appConfigService,)));
                       },
                       child: Text(''))
               ),
