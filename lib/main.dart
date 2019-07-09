@@ -26,7 +26,7 @@ class EcolecuaApp extends StatefulWidget {
 }
 
 class _EcolecuaAppState extends State<EcolecuaApp> {
-  
+
   String _nombre;
   double _fontSize;
 
@@ -34,7 +34,7 @@ class _EcolecuaAppState extends State<EcolecuaApp> {
   void initState() {
     super.initState();
     _load();
-    _fontSize=widget.appConfigService.appData.fontSize;
+    _fontSize = widget.appConfigService.appData.fontSize;
   }
 
   //Loading counter value on start
@@ -52,92 +52,76 @@ class _EcolecuaAppState extends State<EcolecuaApp> {
       title: widget.title,
       home: Builder(builder: (context) => inicio(context)),
       routes: {
-            '/tutorial/whatsapp' : (context) => Whatsapp01Page()
+        '/tutorial/whatsapp': (context) => Whatsapp01Page()
       },
     );
   }
-  
+
   Widget inicio(context) {
     return Scaffold(
-      body:Container(
-        padding: EdgeInsets.fromLTRB(0.0, 80.0, 0.0, 0.0),
-        child: Center(
-          child:
-          Column(
+        body: Container(
+          padding: EdgeInsets.fromLTRB(0.0, 80.0, 0.0, 0.0),
+          child: Center(
+            child:
+            Column(
 
-              children: <Widget>[
-                new Container(
-                    child: CircleAvatar(
-                      foregroundColor: Colors.blue,
-                      backgroundColor: Colors.blue,
-                      backgroundImage: AssetImage('assets/images/logo.jpg'),
-                    ),
-                    width: 310.0,
-                    height: 310.0,
-                    padding: const EdgeInsets.all(4.0), // borde width
-                    decoration: new BoxDecoration(
-                      color: Colors.deepOrange, // border color
-                      shape: BoxShape.circle,
-                    )
-                ),
-
-                Container(child:
-                Text('Bienvenido $_nombre',style: TextStyle(fontSize: _fontSize),),
-                  padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
-                ),
-
-                Container(
-                  padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
-                  child:
-                  ButtonTheme(
-                      minWidth: 250.0,
-                      height: 40.0,
-                      child: RaisedButton(
-                          elevation: 20.0,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                          color:Colors.orangeAccent,
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) => ConfigVolumenPage(
-                                        widget.appConfigService)));
-                          },
-                          child: Text("Empecemos", style: TextStyle(fontSize: _fontSize,color: Colors.white)))
+                children: <Widget>[
+                  new Container(
+                      child: CircleAvatar(
+                        foregroundColor: Colors.blue,
+                        backgroundColor: Colors.blue,
+                        backgroundImage: AssetImage('assets/images/logo.jpg'),
+                      ),
+                      width: 310.0,
+                      height: 310.0,
+                      padding: const EdgeInsets.all(4.0),
+                      // borde width
+                      decoration: new BoxDecoration(
+                        color: Colors.deepOrange, // border color
+                        shape: BoxShape.circle,
+                      )
                   ),
-                ),
-              ]
 
+                  Container(child:
+                  Text('Bienvenido $_nombre',
+                    style: TextStyle(fontSize: _fontSize),),
+                    padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
+                  ),
+
+                  Container(
+                    padding: EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 0.0),
+                    child:
+                    ButtonTheme(
+                        minWidth: 250.0,
+                        height: 40.0,
+                        child: RaisedButton(
+                            elevation: 20.0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                                    Radius.circular(20.0))),
+                            color: Colors.orangeAccent,
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          ConfigVolumenPage(
+                                              widget.appConfigService)));
+                            },
+                            child: Text("Empecemos", style: TextStyle(
+                                fontSize: _fontSize, color: Colors.white)))
+                    ),
+                  ),
+                ]
+
+            ),
           ),
-        ),
 
 
-      )
-    );
-  }
-
-  Widget empecemosButton(context) {
-    return SizedBox(
-      height: 50,
-      width: 140,
-      child: MaterialButton(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          onPressed: () {
-            
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) => ConfigVolumenPage(
-                        widget.appConfigService)));
-          },
-          color: Theme.of(context).primaryColor,
-          child: Text("Empecemos", style: TextStyle(fontSize: _fontSize,color: Colors.white))),
+        )
     );
   }
 
 }
- 
   
 
