@@ -40,10 +40,7 @@ class AppData {
     await prefs.setBool("tieneEvaluacion", tieneEvaluacion);
     this.tieneEvaluacion = tieneEvaluacion;
   }
-
-
-
-
+  
 
 
 }

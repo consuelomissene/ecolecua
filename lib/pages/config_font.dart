@@ -39,9 +39,9 @@ class ConfigFontPageState extends State<ConfigFontPage> {
             ),
             Slider(
                 value: configService.appData.fontSize,
-                min: 10.0,
-                max: 20.0,
-                divisions: 10,
+                min: 22.0,
+                max: 26.0,
+                divisions: 4,
                 label: '${configService.appData.fontSize.round()}',
                 onChanged: (double value) {
                   setState(() => configService.appData.fontSize = value);
