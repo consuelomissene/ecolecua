@@ -87,7 +87,7 @@ class _EcolecuaAppState extends State<EcolecuaApp> {
 
                   Container(child:
                   Text('Bienvenido $_nombre',
-                    style: TextStyle(fontSize: _fontSize+10.0)),
+                    style: TextStyle(fontSize: _fontSize+10.0),),
                     padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
                   ),
 
