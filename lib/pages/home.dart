@@ -5,12 +5,13 @@ import 'dart:io';
 import 'Config.dart';
 
 class HomePage extends StatelessWidget {
+  
   final AppConfigService appConfigService;
   HomePage(this.appConfigService);
-  double _fontSize;
+  
   @override
   Widget build(BuildContext context) {
-    _fontSize = appConfigService.appData.fontSize;
+    double _fontSize = appConfigService.appData.fontSize;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orangeAccent[700],
@@ -28,14 +29,13 @@ class HomePage extends StatelessWidget {
                   minWidth: 60.0,
                   height: 30.0,
                   child: RaisedButton(
-                    onPressed: () => {
-                          null,
+                    onPressed: ()  {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
                                     ConfiguracionPage(appConfigService)),
-                          ),
+                          );
                         },
                     color: Colors.orangeAccent[100],
                     padding: EdgeInsets.only(left: 10.0, right: 10.0),
@@ -67,7 +67,6 @@ class HomePage extends StatelessWidget {
                     icon: Icon(Icons.volume_off),
                     color: Colors.black,
                     onPressed: () {
-                      null;
                     },
                   ),
                 ),
@@ -155,14 +154,14 @@ class HomePage extends StatelessWidget {
 }
 
 class ChoiceCard extends StatelessWidget {
+  
   ChoiceCard({Key key, this.boton, this.appConfigService}) : super(key: key);
   final Boton boton;
   final AppConfigService appConfigService;
-  double _fontSize;
 
   @override
   Widget build(BuildContext context) {
-    _fontSize = appConfigService.appData.fontSize;
+    double _fontSize = appConfigService.appData.fontSize;
     return RaisedButton(
       elevation: 20.0,
       shape: RoundedRectangleBorder(
